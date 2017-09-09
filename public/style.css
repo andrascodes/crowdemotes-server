@@ -11,3 +11,12 @@
   /* width: 10%; */
   cursor: pointer;
 }
+
+.logo {
+  padding-top: 9em;
+  padding-bottom: 7em;
+}
+
+.reactions {
+  padding-bottom: 20em;
+}
