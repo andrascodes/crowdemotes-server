@@ -56,19 +56,31 @@
           console.log(msg + " was clicked")
         }
 
+        function selectImg(id) {
+          ["1", "2", "3", "4", "5"].forEach(function(imgId) {
+            document.getElementById(imgId).className = document.getElementById(imgId).className.replace("selected", "").trim()
+          })
+          document.getElementById(id).className += " selected";
+        }
+
         document.getElementById("1").onclick = function() {
+          selectImg("1")
           emit("one")
         }
         document.getElementById("2").onclick = function() {
+          selectImg("2")
           emit("two")
         }
         document.getElementById("3").onclick = function() {
+          selectImg("3")
           emit("three")
         }
         document.getElementById("4").onclick = function() {
+          selectImg("4")
           emit("four")
         }
         document.getElementById("5").onclick = function() {
+          selectImg("5")
           emit("five")
         }
     </script>
