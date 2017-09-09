@@ -10,6 +10,9 @@
 .reaction {
   /* width: 10%; */
   cursor: pointer;
+}
+
+.reactImg {
   width: 10%;
 }
 
