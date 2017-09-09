@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
@@ -9,6 +10,8 @@ const standing = {
   four: 0,
   five: 0,
 }
+
+app.use(express.static('public'))
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/index.html');

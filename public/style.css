@@ -1,0 +1,13 @@
+/* .container {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-child {
+  flex-basis: 10%;
+}
+*/
+.reaction {
+  /* width: 10%; */
+  cursor: pointer;
+}

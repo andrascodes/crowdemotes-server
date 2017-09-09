@@ -2,39 +2,52 @@
 <html>
   <head>
     <title>Socket.IO chat</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
   
   <body>
-    <div id="reactions">
-      <button id="1">One</button>
-      <button id="2">Two</button>
-      <button id="3">Three</button>
-      <button id="4">Four</button>
-      <button id="5">Five</button>
-    </div>
-    <div id="clicks">
-
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <img src="stagecast.png" alt="">
+        </div>
+      </div>
+      <div class="row align-middle">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <img src="emoji1.png" id="1" class="reaction img-fluid" alt="">
+        </div>
+        <div class="col-md-2">
+          <img src="emoji2.png" id="2" class="reaction img-fluid" alt="">
+        </div>
+        <div class="col-md-2">
+          <img src="emoji3.png" id="3" class="reaction img-fluid" alt="">
+        </div>
+        <div class="col-md-2">
+          <img src="emoji4.png" id="4" class="reaction img-fluid" alt="">
+        </div>
+        <div class="col-md-2">
+          <img src="emoji5.png" id="5" class="reaction img-fluid" alt="">
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="thanks" class="text-center"></div>
+        </div>
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
       <script>
         var socket = io();
 
-        const oneClick = document.createElement('oneClick')
-        oneClick.innerHTML = '<p>one</p>'
+        const click = document.createElement('oneClick')
+        click.innerHTML = '<p>Thanks for voting!</p>'
 
         socket.on('click', function(msg){
           console.log(msg)
-          document.getElementById("clicks").appendChild(oneClick)
+          document.getElementById("thanks").appendChild(click)
         });
 
         function emit(msg) {
