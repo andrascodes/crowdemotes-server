@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  
+  <body>
+    <div id="reactions">
+      <button id="1">One</button>
+      <button id="2">Two</button>
+      <button id="3">Three</button>
+      <button id="4">Four</button>
+      <button id="5">Five</button>
+    </div>
+    <div id="clicks">
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+      <script>
+        var socket = io();
+
+        const oneClick = document.createElement('oneClick')
+        oneClick.innerHTML = '<p>one</p>'
+
+        socket.on('click', function(msg){
+          console.log(msg)
+          document.getElementById("clicks").appendChild(oneClick)
+        });
+
+        function emit(msg) {
+          socket.emit(msg)
+          console.log(msg + " was clicked")
+        }
+
+        document.getElementById("1").onclick = function() {
+          emit("one")
+        }
+        document.getElementById("2").onclick = function() {
+          emit("two")
+        }
+        document.getElementById("3").onclick = function() {
+          emit("three")
+        }
+        document.getElementById("4").onclick = function() {
+          emit("four")
+        }
+        document.getElementById("5").onclick = function() {
+          emit("five")
+        }
+    </script>
+  </body>
+</html>
