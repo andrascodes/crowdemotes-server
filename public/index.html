@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>CrowdEmotes - Voting</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
@@ -45,10 +45,11 @@
         const click = document.createElement('oneClick')
         click.innerHTML = '<p>Thanks for voting!</p>'
 
-        socket.on('click', function(msg){
-          console.log(msg)
-          document.getElementById("thanks").appendChild(click)
-        });
+        // socket.on('click', function(msg, msg2){
+        //   console.log(msg)
+        //   console.log(msg2)
+        //   document.getElementById("thanks").appendChild(click)
+        // });
 
         function emit(msg) {
           socket.emit(msg)

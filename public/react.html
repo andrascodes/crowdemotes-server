@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>CrowdEmotes - Mood Screen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  
+  <body>
+    <div class="container-fluid">
+      <div class="row majorityImg">
+        <div class="col-lg-12 text-center">
+            <img src="emoji1.png" id="majorityImg" class="img-fluid" alt="">
+        </div>
+      </div>
+      <div class="row reactionList">
+        <div class="col-md-12 text-center">
+          <ul id="reaction-list"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+      <script>
+        var socket = io();
+
+        socket.on('click', function(number, standing){
+          console.log(number)
+          console.log(standing)
+
+          // Handle majority in standings
+          const majorityIndex = standing.reduce( (a,b,i) => a[0] < b ? [b,i] : a, [Number.MIN_VALUE,-1])[1]+1
+          document.getElementById('majorityImg').src= "emoji" + majorityIndex + ".png"
+
+          const reactionItem = document.createElement('reactionItem')
+          reactionItem.innerHTML = '<img src="emoji' + number + '.png" id="' + number + '" class="reaction img-fluid" alt="">'
+
+          const listItem = document.createElement('li')
+          listItem.appendChild(reactionItem)
+
+          
+          document.getElementById("reaction-list").appendChild(listItem)
+        });
+
+    </script>
+  </body>
+</html>

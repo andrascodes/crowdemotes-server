@@ -10,13 +10,31 @@
 .reaction {
   /* width: 10%; */
   cursor: pointer;
+  width: 10%;
 }
 
 .logo {
-  padding-top: 9em;
+  padding-top: 7em;
   padding-bottom: 7em;
 }
 
 .reactions {
   padding-bottom: 20em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: inline;
+}
+
+.reactionList {
+  padding-top: 7em;
+  padding-bottom: 10em;
+}
+
+.majorityImg {
+  padding-top: 7em;
 }
